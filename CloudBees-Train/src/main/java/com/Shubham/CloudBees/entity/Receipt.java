@@ -26,7 +26,7 @@ public class Receipt implements Serializable{
 
 	@ManyToOne
 	private UserData user;
-	private double pricePaid=20.0;
+	final private double pricePaid=20.0;
 
 	public Receipt() {
 		super();
@@ -35,7 +35,6 @@ public class Receipt implements Serializable{
 	public Receipt(String from, String to, UserData user, double pricePaid) {
 		super();
 		this.user = user;
-		this.pricePaid = pricePaid;
 	}
 
 	public String getFrom() {
@@ -56,10 +55,6 @@ public class Receipt implements Serializable{
 
 	public double getPricePaid() {
 		return pricePaid;
-	}
-
-	public void setPricePaid(double pricePaid) {
-		this.pricePaid = pricePaid;
 	}
 
 	@Override
