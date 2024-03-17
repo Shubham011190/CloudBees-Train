@@ -70,6 +70,9 @@ public class TrainService {
 	public void deleteUserFromTrain(String userName) {
 		String[] userSplitName = userName.split(" ");
 		UserData data = daoService.getUserFromName(userSplitName[0], userSplitName[1]);
+		if(data==null) {
+			System.out.println("User does not exist!");
+		}
 		emptySeatFromUser(data);
 
 

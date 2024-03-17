@@ -69,4 +69,11 @@ public class Receipt implements Serializable{
 		this.pricePaid = pricePaid;
 	}
 
+	@Override
+	public String toString() {
+		return "Receipt [id=" + id + ", fromStation=" + fromStation + ", toStation=" + toStation + ", user=" + user
+				+ ", pricePaid=" + pricePaid + "]";
+	}
+
+	
 }

@@ -23,11 +23,6 @@ public class TrainController {
 	@Autowired
 	TrainService service;
 	
-	@GetMapping("/test")
-	public String testData() {
-		return "Hello World";
-	}
-	
 	@PostMapping("/ticketPurchase")
 	public Receipt purchaseTicket(@RequestBody UserData input) {
 		return service.saveReceiptData(input);

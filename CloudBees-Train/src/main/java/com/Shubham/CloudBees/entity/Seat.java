@@ -46,6 +46,11 @@ public class Seat implements Serializable {
 	public void setSeatNo(int seatNo) {
 		this.seatNo = seatNo;
 	}
+
+	@Override
+	public String toString() {
+		return "Seat [id=" + id + ", seatNo=" + seatNo + ", section=" + section + "]";
+	}
 	
 	
 }

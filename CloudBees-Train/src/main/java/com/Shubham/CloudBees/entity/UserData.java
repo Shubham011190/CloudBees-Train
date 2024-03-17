@@ -64,6 +64,12 @@ public class UserData implements Serializable{
 
 	public void setSeat(Seat seat) {
 		this.seat = seat;
+	}
+
+	@Override
+	public String toString() {
+		return "UserData [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", seat=" + seat + "]";
 	}	
 	
 }
