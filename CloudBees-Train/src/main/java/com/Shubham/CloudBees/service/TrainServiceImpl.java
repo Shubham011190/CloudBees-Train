@@ -42,13 +42,12 @@ public class TrainServiceImpl implements TrainService {
 	//Assigned a seat to the User
 	public void assignSeatToUser(UserData user) {
 		Seat seat = getNextSeat();
-		boolean flag=false;
+		if(seat==null) {
+			System.out.println("Train is Full!");
+			return;
+		}
 		UserData ifexist = trainDao.getUserFromSeat(seat.getSeatNo());
-		while(flag==false) {
-			if(ifexist==null) {
-				flag=true;
-				break;
-			}
+		while(ifexist!=null) {
 			seat=getNextSeat();
 			ifexist = trainDao.getUserFromSeat(seat.getSeatNo());
 		}
