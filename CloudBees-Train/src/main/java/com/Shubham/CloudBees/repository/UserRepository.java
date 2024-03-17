@@ -25,7 +25,5 @@ public interface UserRepository extends JpaRepository<UserData, Long>{
         user.setSeat(newSeat);
         save(user);
     }
-
 	UserData findUserBySeatSeatNo(int seatNo);
-	
 }

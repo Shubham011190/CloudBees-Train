@@ -19,33 +19,33 @@ import com.Shubham.CloudBees.service.TrainService;
 @RestController
 @RequestMapping("/cloudbees")
 public class TrainController {
-	
+
 	@Autowired
-	TrainService service;
-	
+	TrainService trainService;
+
 	@PostMapping("/ticketPurchase")
 	public Receipt purchaseTicket(@RequestBody UserData input) {
-		return service.saveReceiptData(input);
+		return trainService.saveReceiptData(input);
 	}
-	
+
 	@GetMapping("/receipts")
 	public List<Receipt> getAllReceipts(){
-		return service.findAllReceipts();
+		return trainService.findAllReceipts();
 	}
-	
+
 	@GetMapping("/users/{section}")
 	public List<UserData> getUsersBySection(@PathVariable String section){
-		return service.getUsersFromSection(section);
+		return trainService.getUsersFromSection(section);
 	}
-	
+
 	@DeleteMapping("/deleteUser")
 	public String deleteUser(@RequestBody String userName) {
-		service.deleteUserFromTrain(userName);
-		return "User : " + userName + " removed from the Train!";
+		return trainService.deleteUserFromTrain(userName);
+
 	}
-	
+
 	@PutMapping("/updateSeat")
 	public Receipt updateSeat(@RequestBody String input) {
-		return service.updateSeatForUser(input);
+		return trainService.updateSeatForUser(input);
 	}
 }

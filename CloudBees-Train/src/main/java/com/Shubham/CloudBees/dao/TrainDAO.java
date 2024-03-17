@@ -13,7 +13,7 @@ import com.Shubham.CloudBees.repository.SeatRepository;
 import com.Shubham.CloudBees.repository.UserRepository;
 
 @Service
-public class DaoService{
+public class TrainDAO{
 
 	@Autowired
 	ReceiptRepository receiptRepository;
@@ -24,10 +24,9 @@ public class DaoService{
 	@Autowired
 	SeatRepository seatRepository;
 
-	public String saveReceipt(Receipt receipt) {
+	public void saveReceipt(Receipt receipt) {
 		// TODO Auto-generated method stub
 		receiptRepository.save(receipt);
-		return "Receipt saved in DB for User : " + receipt.getUser().getFirstName() + " "+ receipt.getUser().getLastName();
 	}
 
 	public List<Receipt> findAllReceipts() {
@@ -35,12 +34,12 @@ public class DaoService{
 		return receiptRepository.findAll();
 	}
 	
-	public UserData saveUserData(UserData data) {
-		return userRepository.save(data);
+	public void saveUserData(UserData data) {
+		userRepository.save(data);
 	}
 	
-	public Seat saveSeat(Seat seat) {
-		return seatRepository.save(seat);
+	public void saveSeat(Seat seat) {
+		seatRepository.save(seat);
 	}
 	public void removeSeat(Seat seat) {
 		seatRepository.delete(seat);
@@ -72,8 +71,8 @@ public class DaoService{
 	public List<Seat> getSeats(){
 		return seatRepository.findAll();
 	}
-	public Seat getSeatfromNo(int seatNo) {
-		return seatRepository.getSeatFromNo(seatNo);
+	public Seat getSeatFromSeatNo(int seatNo) {
+		return seatRepository.getSeatFromSeatNo(seatNo);
 	}
 	
 	public UserData getUserFromSeat(int seatNo) {

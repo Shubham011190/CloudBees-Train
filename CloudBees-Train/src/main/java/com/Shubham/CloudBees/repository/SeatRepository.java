@@ -10,5 +10,5 @@ import com.Shubham.CloudBees.entity.Seat;
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
 	@Query("SELECT s from Seat s where s.seatNo=?1")
-	Seat getSeatFromNo(int seatNo);
+	Seat getSeatFromSeatNo(int seatNo);
 }

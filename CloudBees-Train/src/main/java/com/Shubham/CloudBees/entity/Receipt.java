@@ -1,5 +1,6 @@
 package com.Shubham.CloudBees.entity;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
@@ -10,29 +11,29 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Receipt implements Serializable{
-	
+
 	/**
 	 * 
 	 */
+
+	@Serial
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String fromStation="London";
-	private String toStation="France";
-	
+	final private String fromStation="London";
+	final private String toStation="France";
+
 	@ManyToOne
 	private UserData user;
 	private double pricePaid=20.0;
-	
+
 	public Receipt() {
 		super();
 	}
-	
+
 	public Receipt(String from, String to, UserData user, double pricePaid) {
 		super();
-		this.fromStation = from;
-		this.toStation = to;
 		this.user = user;
 		this.pricePaid = pricePaid;
 	}
@@ -41,18 +42,10 @@ public class Receipt implements Serializable{
 		return fromStation;
 	}
 
-	public void setFrom(String from) {
-		this.fromStation = from;
-	}
-
 	public String getTo() {
 		return toStation;
 	}
-
-	public void setTo(String to) {
-		this.toStation = to;
-	}
-
+	
 	public UserData getUser() {
 		return user;
 	}
@@ -75,5 +68,5 @@ public class Receipt implements Serializable{
 				+ ", pricePaid=" + pricePaid + "]";
 	}
 
-	
+
 }

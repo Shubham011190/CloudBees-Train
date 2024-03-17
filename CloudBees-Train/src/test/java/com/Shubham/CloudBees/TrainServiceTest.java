@@ -17,21 +17,21 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.Shubham.CloudBees.dao.DaoService;
+import com.Shubham.CloudBees.dao.TrainDAO;
 import com.Shubham.CloudBees.entity.Receipt;
 import com.Shubham.CloudBees.entity.Seat;
 import com.Shubham.CloudBees.entity.UserData;
-import com.Shubham.CloudBees.service.TrainService;
+import com.Shubham.CloudBees.service.TrainServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(SpringRunner.class)
 public class TrainServiceTest {
 	
 	@InjectMocks
-	private TrainService service;
+	private TrainServiceImpl service;
 	
 	@Mock
-	DaoService daoService;
+	TrainDAO daoService;
 
 	@BeforeEach
 	public void init() {
